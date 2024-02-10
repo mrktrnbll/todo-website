@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MarkSoftwareDev</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <title>To-Do Battle</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon_io/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon_io/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon_io/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='to-do.css') }}">
@@ -18,20 +18,20 @@
             <div id="heading"><h1>Rona's To-Do</h1></div>
                 <form id="todoFormPink">
                     <input type="text" id="todoInputPink" placeholder="Enter a To-Do">
-                    <button type="button" onclick="addTodoPink()">Add</button>
+                    <button id="rona-add" type="button" onclick="addTodoPink()">Add</button>
                 </form>
-                <ul id="todoListPink"></ul>
-        <button id="rona-delete" type="button" onclick="deleteAllTodosPink()">Delete Ronas To-Dos</button>
+                <ul class="pink-container" id="todoListPink"></ul>
+            <button id="rona-delete" type="button" onclick="deleteAllTodosPink()">Delete Ronas To-Dos</button>
         </div>
 
         <div id="todo-mark">
             <div id="heading"><h1>Mark's To-Do</h1></div>
                 <form id="todoFormBlue">
                     <input type="text" id="todoInputBlue" placeholder="Enter a To-Do">
-                    <button type="button" onclick="addTodoBlue()">Add</button>
+                    <button id="mark-add" type="button" onclick="addTodoBlue()">Add</button>
                 </form>
-            <ul id="todoListBlue"></ul>
-        <button id="mark-delete" type="button" onclick="deleteAllTodosBlue()">Delete Marks To-Dos</button>
+                <ul class="blue-container" id="todoListBlue"></ul>
+            <button id="mark-delete" type="button" onclick="deleteAllTodosBlue()">Delete Marks To-Dos</button>
         </div>
     </div>
 </body>

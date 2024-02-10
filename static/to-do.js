@@ -111,6 +111,7 @@ function addTodoPink() {
             body: JSON.stringify({
                 todo_text: todoText,
                 container: "pink",
+                completed: false
             }),
         })
         .then(response => response.json())
@@ -127,6 +128,35 @@ function addTodoPink() {
         });
     }
 }
+//
+// function addTodoBlue() {
+//     var todoText = document.getElementById("todoInputBlue").value;
+//
+//     if (todoText.trim() !== "") {
+//         fetch("/add_todo_blue", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 todo_text: todoText,
+//                 container: "blue",
+//             }),
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.success) {
+//                 addTodoToList(data.todo.id, todoText, false, "todoListBlue");
+//                 document.getElementById("todoInputBlue").value = "";
+//             } else {
+//                 console.error("Failed to add todo:", data.error);
+//             }
+//         })
+//         .catch(error => {
+//             console.error("Error in addTodoBlue:", error);
+//         });
+//     }
+// }
 
 function addTodoBlue() {
     var todoText = document.getElementById("todoInputBlue").value;
@@ -140,6 +170,7 @@ function addTodoBlue() {
             body: JSON.stringify({
                 todo_text: todoText,
                 container: "blue",
+                completed: false, // Initialize as unchecked
             }),
         })
         .then(response => response.json())
@@ -215,6 +246,10 @@ function addTodoToList(todoId, todoText, completed, listId) {
     checkbox.type = "checkbox";
     checkbox.checked = completed;
 
+    checkbox.addEventListener("change", function() {
+        updateTodoStatus(todoId, checkbox.checked);
+    });
+
     li.appendChild(checkbox);
 
     var label = document.createElement("label");
@@ -222,5 +257,27 @@ function addTodoToList(todoId, todoText, completed, listId) {
     li.appendChild(label);
 
     document.getElementById(listId).appendChild(li);
+}
+
+function updateTodoStatus(todoId, completed) {
+    fetch("/update_todo", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            todo_id: todoId,
+            completed: completed,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            console.error("Failed to update todo status:", data.error);
+        }
+    })
+    .catch(error => {
+        console.error("Error updating todo status:", error);
+    });
 }
 

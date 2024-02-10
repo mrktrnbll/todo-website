@@ -230,6 +230,21 @@ def delete_all_todos_blue():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/update_todo", methods=["PUT"])
+def update_todo():
+    try:
+        todo_id = request.json["todo_id"]
+        completed = request.json["completed"]
+
+        with sqlite3.connect("todos.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("UPDATE todos SET completed = ? WHERE id = ?", (completed, todo_id))
+            conn.commit()
+
+        return jsonify({"success": True}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
