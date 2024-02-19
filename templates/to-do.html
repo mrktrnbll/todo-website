@@ -16,21 +16,32 @@
     <div id="container">
         <div id="todo-rona">
             <div id="heading"><h1>Rona's To-Do</h1></div>
-                <form id="todoFormPink">
-                    <input type="text" id="todoInputPink" placeholder="Enter a To-Do">
-                    <button id="rona-add" type="button" onclick="addTodoPink()">Add</button>
-                </form>
-                <ul class="pink-container" id="todoListPink"></ul>
+                <div id="todo">
+                    <form id="todoFormPink">
+                        <input type="text" id="todoInputPink" placeholder="Enter a To-Do">
+                        <button id="rona-add" type="button" onclick="addTodoPink()">Add</button>
+                    </form>
+                    <ul class="pink-container" id="todoListPink"></ul>
+                </div>
+                <div id="done">
+                    <ul class="pink-container-complete" id="todoListPinkComplete"></ul>
+                </div>
             <button id="rona-delete" type="button" onclick="deleteAllTodosPink()">Delete Ronas To-Dos</button>
         </div>
 
         <div id="todo-mark">
             <div id="heading"><h1>Mark's To-Do</h1></div>
-                <form id="todoFormBlue">
-                    <input type="text" id="todoInputBlue" placeholder="Enter a To-Do">
-                    <button id="mark-add" type="button" onclick="addTodoBlue()">Add</button>
-                </form>
-                <ul class="blue-container" id="todoListBlue"></ul>
+                <div id="todo">
+                    <form id="todoFormBlue">
+                        <input type="text" id="todoInputBlue" placeholder="Enter a To-Do">
+                        <button id="mark-add" type="button" onclick="addTodoBlue()">Add</button>
+                    </form>
+                    <ul class="blue-container" id="todoListBlue"></ul>
+                </div>
+                <div id="done">
+                    <ul class="blue-container" id="todoListBlueComplete"></ul>
+                </div>
+
             <button id="mark-delete" type="button" onclick="deleteAllTodosBlue()">Delete Marks To-Dos</button>
         </div>
     </div>

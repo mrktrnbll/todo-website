@@ -10,6 +10,18 @@ body {
     align-items: center;
 }
 
+#todo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#done {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+
 h1 {
     flex: 1;
 }
@@ -49,6 +61,30 @@ ul#todoListPink label {
     vertical-align: middle;
 }
 
+ul#todoListPinkComplete input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #eecaca;
+    border-radius: 5px;
+    outline: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+ul#todoListPinkComplete input[type="checkbox"]:checked {
+    background-color: #eecaca;
+    border-color: #eecaca;
+}
+
+ul#todoListPinkComplete label {
+    font-size: 16px;
+    color: #333;
+    vertical-align: middle;
+}
+
 ul#todoListBlue input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -68,6 +104,30 @@ ul#todoListBlue input[type="checkbox"]:checked {
 }
 
 ul#todoListBlue label {
+    font-size: 16px;
+    color: #333;
+    vertical-align: middle;
+}
+
+ul#todoListBlueComplete input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c4edf3;
+    border-radius: 5px;
+    outline: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+ul#todoListBlueComplete input[type="checkbox"]:checked {
+    background-color: #c4edf3;
+    border-color: #c4edf3;
+}
+
+ul#todoListBlueComplete label {
     font-size: 16px;
     color: #333;
     vertical-align: middle;
